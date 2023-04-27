@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page View Counter</title>
+  </head>
+  <body>
+    <h1>Welcome to my website!</h1>
+    <p>This page has been viewed <span id="counter-value">0</span> times.</p>
+
+    <script>
+      // Send an HTTP request to the server to retrieve the current counter value
+      fetch('/counter.php')
+        .then(response => response.json())
+        .then(data => {
+          // Set the counter value to the retrieved value
+          let counter = data.counter;
+
+          // Update the HTML element that displays the counter value
+          document.getElementById('counter-value').textContent = counter;
+
+          // Increment the counter value and send an HTTP request to the server to update it
+          counter++;
+          fetch('/counter.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ counter: counter })
+          });
+        });
+    </script>
+  </body>
+</html>
