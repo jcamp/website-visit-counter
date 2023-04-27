@@ -3,6 +3,8 @@ General visit counter for websites. Uses a text file to hold the current visit c
 
 Very simple visit counter for a website. A bit retro but had a client who wanted one. :)
 
+This could also be used to display any type of counter. In this example I am using it as a counter for the number of visits to a page, but could measure any other method that needs to store a counter in a file and display the results after incrementing in a web page.
+
 Counter.php does the serverside code of retrieving the value of the counter from a text file, and incrementing or setting the value to 0 if the file does not exist. The counter.js (or if you put the JS in the actual html file) will increment the counter and display at a position in the HTML where the counter was called from (see the sample counter.html file for an example of use).
 
 If you put the javascript directly into your webpage (html file) the external counter.js is not needed.
